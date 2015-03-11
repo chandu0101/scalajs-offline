@@ -14,11 +14,12 @@
  I was interested in offline apps for none of the reasons mentioned above, 
  this is where i'm coding these days :)
  
- ![offline coding](images/offline.jpg)
+ ![offline coding](images/offline.JPG)
  
 [Some times its good to test what our little brain can do in isolation](https://www.flickr.com/photos/131773244@N04/16773951235/)
 
  enough stories? ,ok back to business ..
+ 
 ###What is a ServiceWorker :
  
 ServiceWorker is a background worker, it gives us a JavaScript context to add features such as push messaging, background sync, geofencing and network control.
@@ -37,7 +38,7 @@ In terms of network control, it acts like a proxy server sitting on the client, 
 
 enough theory ? , ok back to real business ..
  
-  ###Registration
+###Registration
   
 ```scala
 
@@ -239,7 +240,7 @@ Feth API Response types
 
 
 
-**Thats it , you successfully created first offline App!. Sorry for stopping you before , now go out enjoy cool breeze :).Take your app with you if you want ,its offline app afterall!. **
+**Thats it , you successfully created first offline App!. Sorry for stopping you before , now go out enjoy cool breeze :).Take your app with you if you want ,its offline app afterall!.**
 
 ###Updating App :
 
@@ -249,7 +250,7 @@ Let say if we updated our app code(some core logic!) then  incremented version n
 
 1) New offline.js file will be downloaded and it'll byte compared with old file , check will return true and serviceWorker try to installs new version.
 
-![new worker installed](images/newworkerinstalled.png)
+![new worker installed](images/neworkerinstalled.png)
 
 2) New worker will not be activated until current tab closed(or hard refreshed shift+refresh), meaning all network requests handled by old service worker.
 
