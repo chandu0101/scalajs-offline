@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ScalaJS Offline example</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 12px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            font-size: 13px;
+            line-height: 20px;
+            margin: auto;
+        }
+
+        textarea {
+          border :  1px solid #eee;
+            outline: none;
+        }
+
+        textarea:focus
+        {
+            border: 1px solid #ffefcc;
+        }
+        ul {
+            list-style: none;
+        }
+        input {
+            padding : 2px;
+            
+        }
+        h3 {
+            padding-top: 30px;
+            text-align: center;
+            
+        }
+        
+        .homePage {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .homePage div {
+           flex-basis: 50%;
+           height : 100%
+        }
+        
+        .todoWrapper {
+          background-color: rgb(240, 163, 20);
+          padding : 40px;
+        }
+        
+        .reposWrapper {
+          color :  rgb(226, 222, 222);
+            background-color: rgb(240, 89, 76);
+            padding : 40px;
+        }
+        
+       .homePage div .todoapp {
+            display : flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height : 70%;
+            box-shadow: 0 2px 4px rgb(105, 96, 96);
+        }
+        
+       .homePage div .repos {
+            height: 85%;
+            overflow-y: auto;
+            overflow-x: auto;
+            /*box-shadow: 0 2px 4px blue;*/
+
+        }
+        
+        .repos a {
+            color :rgb(71, 67, 59);
+            font-size: 16px;
+            text-decoration: none;
+        }
+        
+    </style>
+    
+</head>
+<body>
+
+
+<div id="container"></div>
+
+<!-- Include JavaScript dependencies -->
+<script type="text/javascript" src="js/scalajs-offline-jsdeps.js"></script>
+<!-- Include Scala.js compiled code -->
+<script type="text/javascript" src="js/scalajs-offline-opt.js"></script>
+<!-- Run JSApp -->
+<script>chandu0101.scalajs.offline.ReactApp().main()</script>
+</body>
+</html>
