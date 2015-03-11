@@ -135,7 +135,7 @@ You can check this in chrome using
 
 ![service worker activated](images/swactivated.png)
 
-Ok now you're happy man!,want to shut this computer and enjoy cool breeze outisde!.Well it's not done yet bud, keep follow along with me ..
+Ok now you're happy man!,want to shut this computer and enjoy cool breeze outisde!.Well it's not over yet bud, keep follow along with me ..
 
 At this point serviceWorker activated but it's not controlling our page yet, meaning all  network requests from our app still not in control of serviceWorker they directly hitting the world of uncertainty(The Internet).
 
