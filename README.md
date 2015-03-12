@@ -197,7 +197,7 @@ ServiceWorker comes with the new shiny **[fetch api](https://developer.mozilla.o
 Our scalajs-offline app makes only two type of network request 1) static resources from our domain 2) github api call to get scalajs repos.
 
 Static Resource Network Requests :
-   When app requested for a new static resource ,it'll hit service worker fetch event.Here we first check if its in cache or not. If its in cache then we'll send response directly from cache , if not then we request that resource using new **fetch api**  once its finished  we'll chache it and return the response.
+   When app requested for a new static resource ,it'll hit service worker fetch event.Here we first check if its in cache or not. If its in cache then we'll send response directly from cache , if not then we request that resource using new **fetch api**  once its finished  we'll cache it and return the response.
 
 Github API call :
 
