@@ -11,7 +11,7 @@ lazy val root = project.in(file(".")).
 //scala
 val scalajsReactVersion = "0.8.2"
 val scalajsPouchDBVersion = "0.1.0"
-val scalajsDomVersion = "0.8.1-SNAPSHOT"
+val scalajsDomVersion = "0.8.1"
 
 //js
 val reactVersion = "0.12.1"
