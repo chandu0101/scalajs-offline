@@ -1,6 +1,6 @@
 package chandu0101.scalajs.offline.services
 
-import chandu0101.scalajs.facades.pouchdb.{AllDocsOptions, PouchDB}
+import chandu0101.pouchdb.{AllDocsOptions, PouchDB}
 import chandu0101.scalajs.offline.model.TodoItem
 
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -22,8 +22,8 @@ object TodoService extends BaseService[TodoItem] {
   def remove(item: TodoItem) = store.remove(item.toJson)
 
   def getAll: Future[List[TodoItem]] = {
-    store.allDocs(AllDocsOptions(include_docs = true,descending = true)).map(resp => resp.rows.asInstanceOf[js.Array[js.Dynamic]]
-        .map(item => TodoItem.fromJson(item.doc)
+    store.allDocs(AllDocsOptions.include_docs(true).descending(true).result).map(resp => resp.rows.asInstanceOf[js.Array[js.Dynamic]]
+      .map(item => TodoItem.fromJson(item.doc)
       ).toList
     )
   }

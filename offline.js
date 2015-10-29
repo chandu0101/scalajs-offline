@@ -27,20 +27,21 @@
 
 
     // A new ServiceWorker has been registered
-    self.addEventListener("install", function (event) {
-        console.log("Installing SW ..  " + new Date())
-        event.waitUntil(
-            caches.open(cacheNameStatic)
-                .then(function (cache) {
-                    return cache.addAll([
-                        projectDir+"/index.html",
-                        projectDir+"/js/scalajs-offline-opt.js",
-                        projectDir+"/js/scalajs-offline-jsdeps.js"
-                    ]);
-                })
-        );
-    });
+    //self.addEventListener("install", function (event) {
+    //    console.log("Installing SW ..  " + new Date())
+    //    event.waitUntil(
+    //        caches.open(cacheNameStatic)
+    //            .then(function (cache) {
+    //                return cache.addAll([
+    //                    projectDir+"/index.html",
+    //                    projectDir+"/js/scalajs-offline-opt.js",
+    //                    projectDir+"/js/scalajs-offline-jsdeps.js"
+    //                ]);
+    //            })
+    //    );
+    //});
 
+    self.addEventListener("install", hola(event))
 
     // New service worker is activated at this point ( now you can safely perform deleting/migrating old cache)
     self.addEventListener("activate", function (event) {

@@ -1,6 +1,6 @@
 package chandu0101.scalajs.offline.services
 
-import chandu0101.scalajs.facades.pouchdb.PouchDB
+import chandu0101.pouchdb.PouchDB
 
 import scala.concurrent.Future
 
@@ -9,17 +9,17 @@ import scala.concurrent.Future
  */
 trait BaseService[T] {
 
-  val store : PouchDB
-  
+  val store: PouchDB
+
   val sync = false
-  
+
   val retrySync = false
-  
+
   val remoteStore = ""
 
-  def save(item : T)
+  def save(item: T)
 
-  def remove(item : T)
+  def remove(item: T)
 
-  def getAll : Future[List[T]]
+  def getAll: Future[List[T]]
 }

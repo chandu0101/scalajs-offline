@@ -1,6 +1,6 @@
 package chandu0101.scalajs.offline.util
 
-import chandu0101.scalajs.facades.pouchdb.{ChangesEventEmitter, ChangesOptions, ReplicateOptions}
+import chandu0101.pouchdb.{ChangesEventEmitter, ChangesOptions, ReplicateOptions}
 import chandu0101.scalajs.offline.services.BaseService
 import japgolly.scalajs.react.extra.OnUnmount
 import org.scalajs.dom
@@ -16,8 +16,8 @@ abstract class PouchDBChangesListener[T](service: BaseService[T]) extends OnUnmo
 
   var changes: ChangesEventEmitter = null
 
-  var synChanges : ChangesEventEmitter = null
-  
+  var synChanges: ChangesEventEmitter = null
+
   /**
    * implement this method to update react component
    * @param data
@@ -25,17 +25,17 @@ abstract class PouchDBChangesListener[T](service: BaseService[T]) extends OnUnmo
   def updateNewData(data: List[T])
 
   def startListening = {
-    changes = service.store.changes(ChangesOptions(since = "now", live = true)).onChange((resp: js.Dynamic) => {
+    changes = service.store.changes(ChangesOptions.since("now").live(true).result).onChange((resp: js.Dynamic) => {
       getNewData
     }).onError((err: js.Dynamic) => println(s"Error occurred while performing db operations on ${service.store.name} : ${JSON.stringify(err)}"))
     getNewData // call explicitly for the first time
-    if(service.retrySync) retrySync
-    else if(service.sync) sync
+    if (service.retrySync) retrySync
+    else if (service.sync) sync
   }
-  
-  
+
+
   def sync = {
-    synChanges =  service.store.sync(service.remoteStore,ReplicateOptions(live= true))
+    synChanges = service.store.sync(service.remoteStore, ReplicateOptions.live(true).result)
       .onError((err: js.Dynamic) => // oops network error
       println(s"Error occurred while syncing db's  : $err}"))
   }
@@ -43,16 +43,16 @@ abstract class PouchDBChangesListener[T](service: BaseService[T]) extends OnUnmo
   /**
    * Useful when user have on/off internet connectivity (example : mobile internet)
    */
-  def retrySync : Unit = {
+  def retrySync: Unit = {
     var timeout = 10000 // 10secs
     var increment = 2
-    synChanges = service.store.sync(service.remoteStore,ReplicateOptions(live= true))
-      .onChange((resp : js.Dynamic) => timeout = 10000 )// reset retry timer when user came back on
+    synChanges = service.store.sync(service.remoteStore, ReplicateOptions.live(true).result)
+      .onChange((resp: js.Dynamic) => timeout = 10000) // reset retry timer when user came back on
       .onError((err: js.Dynamic) =>
-       dom.setTimeout(() => {
-         timeout *= increment
-         retrySync
-       },timeout)
+      dom.setTimeout(() => {
+        timeout *= increment
+        retrySync
+      }, timeout)
       )
   }
 
@@ -63,14 +63,14 @@ abstract class PouchDBChangesListener[T](service: BaseService[T]) extends OnUnmo
       }
     }
   }
-  
+
 
   /**
    * clean up
    */
   onUnmount(() => {
-   if(changes != null) changes.cancel()
-   if(synChanges != null) synChanges.cancel()
+    if (changes != null) changes.cancel()
+    if (synChanges != null) synChanges.cancel()
   })
 
 }

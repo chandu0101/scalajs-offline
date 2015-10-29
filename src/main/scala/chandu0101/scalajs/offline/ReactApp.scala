@@ -17,17 +17,18 @@ object ReactApp extends JSApp {
   @JSExport
   override def main(): Unit = {
     React.render(AppRouter.C(), dom.document.getElementById("container"))
-    if(!js.isUndefined(dom.navigator.serviceWorker)){ // check if serviceWorker supported or not
+    if (!js.isUndefined(dom.navigator.serviceWorker)) {
+      // check if serviceWorker supported or not
       dom.navigator.serviceWorker.register("/scalajs-offline/offline.js").andThen((resp: ServiceWorkerRegistration) => {
         println(s" ServiceWorker registered ${new Date()} successfully : ${JSON.stringify(resp)}  ")
       }
-      ).catchErr((err: Any) => println(s"service worker failed ${err}")) 
+      ).recover((err: Any) => println(s"service worker failed ${err}"))
     } else {
       println("ServiceWorker not there yet!")
-      
+
     }
   }
-  
+
 }
 
 
