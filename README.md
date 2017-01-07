@@ -17,7 +17,6 @@
  
  ![offline coding](images/offline.JPG)
  
-[Some times its good to test what our little brain can do in isolation](https://www.flickr.com/photos/131773244@N04/16773951235/)
 
  enough stories? ,ok back to business ..
  
