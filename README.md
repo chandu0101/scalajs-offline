@@ -5,6 +5,7 @@
  Internet - The World of **Uncertainty!** , don't believe me ?
  
  ![](http://www.slate.com/content/dam/slate/blogs/future_tense/2014/08/15/shark.jpg.CROP.promo-mediumlarge.jpg)
+
  ![](https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQUl1H91-e3djS3dON4qeXtGebMMIz36dWcpxP8SNlLri6QUWwh)
  
 [The Uncertain Future of the Internet](http://energycommerce.house.gov/hearing/the-uncertain-future-of-the-internet)
