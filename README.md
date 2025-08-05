@@ -20,7 +20,7 @@
 
  enough stories? ,ok back to business ..
  
-###What is a ServiceWorker :
+### What is a ServiceWorker :
  
 ServiceWorker is a background worker, it gives us a JavaScript context to add features such as push messaging, background sync, geofencing and network control.
 
@@ -38,7 +38,7 @@ In terms of network control, it acts like a proxy server sitting on the client, 
 
 enough theory ? , ok back to real business ..
  
-###Registration
+### Registration
   
 ```scala
 
@@ -74,7 +74,7 @@ enough theory ? , ok back to real business ..
      example = { scope : "/scalajs-offline/" } - now our script only captures requests that bound to path scalajs-offline instead whole domain.
 
 3) If registration successfull ,serviceWorker enters next life cycle **install**
-###Install
+### Install
  From now onwards we'll be looking code from offine.js
 
 ```javascript
@@ -109,7 +109,7 @@ enough theory ? , ok back to real business ..
  
 In this stage we'll cache all our static assets that are needed to make our app work offline.Please note that this operation is **atomic** , meaning it'll be successfull only if all resources downloaded and cached otherwise it will fail silently.If installation successfull then serviceWorker enters next life cycle **activate**
 
-###Activate
+### Activate
 
 ```js
   // New service worker installed ( now you can safely perform deleting/migrating old cache)
@@ -154,7 +154,7 @@ all our assets are downloaded from serviceworker not internet!
 
 to take control of network requests we can use serviceWorker  **fetch** life cycle.
 
-###Fetch
+### Fetch
 
 ```js
    // when a network request made from app
